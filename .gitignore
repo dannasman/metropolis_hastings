@@ -1,0 +1,5 @@
+/target
+*.pdf
+data*
+*.txt
+*.py

@@ -52,7 +52,7 @@ impl SpinGrid {
             let energy = 2.0 * self.inter_strength * sigma_xy * s;
 
             let rn: f64 = rng.gen();
-            if energy < 0.0 || (energy > 0.0 && rn < f64::exp(- energy / self.temperature)) {
+            if energy < 0.0 || (energy > 0.0 && rn < f64::exp(-energy / self.temperature)) {
                 self.grid[x][y] = -self.grid[x][y];
             }
         }

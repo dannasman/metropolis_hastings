@@ -16,8 +16,14 @@ fn main() -> Result<(), Box<dyn Error>> {
         .nth(3)
         .expect("fourth argument must be length of the grid along y-axis")
         .parse::<usize>()?;
-    let inter_strength = std::env::args().nth(4).expect("fifth argument must be interaction strength J/(kT)").parse::<f64>()?;
-    let temperature = std::env::args().nth(5).expect("sixth argument must be temperature T in Kelvin").parse::<f64>()?;
+    let inter_strength = std::env::args()
+        .nth(4)
+        .expect("fifth argument must be interaction strength J/(kT)")
+        .parse::<f64>()?;
+    let temperature = std::env::args()
+        .nth(5)
+        .expect("sixth argument must be temperature T in Kelvin")
+        .parse::<f64>()?;
 
     let mut spin_grid = SpinGrid::new(dim_x, dim_y, inter_strength, temperature);
     spin_grid.calculate_configurations();

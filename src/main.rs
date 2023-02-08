@@ -25,8 +25,17 @@ fn main() -> Result<(), Box<dyn Error>> {
         .expect("sixth argument must be temperature T in Kelvin")
         .parse::<f64>()?;
 
-    let mut spin_grid = SpinGrid::new(dim_x, dim_y, inter_strength, temperature);
-    spin_grid.calculate_configurations();
+    let iterations = std::env::args()
+        .nth(6)
+        .expect("seventh argument must be number of Monte Carlo simulation steps")
+        .parse::<u32>()?;
+
+    let mut spin_grid = SpinGrid::new(dim_x, dim_y);
+    let mut i = 0;
+    while i < iterations {
+        spin_grid.calculate_configurations(inter_strength, temperature);
+        i += 1;
+    }
     spin_grid.save(&filename)?;
     Ok(())
 }

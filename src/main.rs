@@ -38,8 +38,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         let elapsed = now.elapsed();
         println!("Simulation completed in {:?}", elapsed);
         spin_grid.save(&filename)?;
-    }
-    else if env::args().len() == 7 {
+    } else if env::args().len() == 7 {
         let filename = env::args()
             .nth(1)
             .expect("second argument must be file name");

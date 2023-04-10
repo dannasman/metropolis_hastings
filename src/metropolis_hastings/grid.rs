@@ -77,7 +77,7 @@ impl SpinGrid {
         if let Some(n) = self.order {
             let max_length = (1 << n) * (1 << n);
             for i in 0..max_length {
-                let mut s = i | (0x55555555 << 2 * n);
+                let mut s = i | (0x55555555 << (2 * n));
                 let sr = (s >> 1) & 0x55555555;
                 let mut cs = ((s & 0x55555555) + sr) ^ 0x55555555;
 
@@ -91,7 +91,7 @@ impl SpinGrid {
                 let mut t = (s & swap) ^ comp;
                 s = s ^ sr ^ t ^ (t << 1);
 
-                s = s & ((1 << 2 * n) - 1);
+                s &= (1 << (2 * n)) - 1;
 
                 t = (s ^ (s >> 1)) & 0x22222222;
                 s = s ^ t ^ (t << 1);

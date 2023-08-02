@@ -5,7 +5,14 @@
 Metropolis-Hastings algorithm for modeling 2D Ising model written in Rust.
 
 ## How to use
-The program takes six arguments in the following order: file name, grid width, grid height, interaction strength $\frac{J}{k_B}$ ( $k_B$ being the Boltzmann constant) and temperature $T$ in K. For example, if we want to run `100` Monte Carlo steps on a `10x10` grid with interaction strength `1.0` and temperature `273.15` K and save the configuration to file `data.txt` we run the following command in console:
+### Default simulation
+The program takes six arguments in the following order: file name, grid width, grid height, interaction strength $\frac{J}{k_B}$ ( $k_B$ being the Boltzmann constant) and temperature $T$ in K. For example, if we want to run `100` Monte Carlo steps on a `128x128` grid with interaction strength `1.0` and temperature `2.269` K and save the configuration to file `data.txt` we run the following command in console:
 ```
-cargo run data.txt 10 10 1.0 273.15 100
+cargo run data.txt 128 1.0 2.269 100
+```
+### Simulation with Hilbert Curve traversal
+The program takes five arguments in the following order:
+file name, Hilbert curve order number, interaction strength $\frac{J}{k_B}$ ( $k_B$ being the Boltzmann constant) and temperature $T$ in K. For example, if we want to run `100` Monte Carlo steps on a grid with size correspondint to a `7`th order Hilbert curve with interaction strength `1.0` and temperature `2.269` K and save the configuration to file `data.txt` we run the following command in console:
+```
+cargo run data.txt 7 1.0 2.269 100
 ```

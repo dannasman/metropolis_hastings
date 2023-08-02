@@ -16,3 +16,6 @@ file name, Hilbert curve order number, interaction strength $\frac{J}{k_B}$ ( $k
 ```
 cargo run data.txt 7 1.0 2.269 100
 ```
+
+## Further reading
+Further discussion about the implementation in [here](https://dannasman.github.io/metropolis-hastings-algorithm) and [here](https://dannasman.github.io/hilbert-curve-ising-model).
